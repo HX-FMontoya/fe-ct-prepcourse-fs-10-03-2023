@@ -1,6 +1,5 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 /*2️⃣ EJERCICIO 02 2️⃣*/
-
 function devolverString(string) {
   // string = "hola"
   // Debe retornar un string.
