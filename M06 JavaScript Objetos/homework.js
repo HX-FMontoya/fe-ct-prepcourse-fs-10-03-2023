@@ -183,6 +183,7 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
     var precioConDescuento = this.precio - descuento;
     return precioConDescuento;
   };
+
   return objetoProducto;
 }
 
