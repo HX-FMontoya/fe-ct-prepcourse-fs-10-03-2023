@@ -194,17 +194,12 @@ function todosIguales(array) {
   // Si todos los elementos del arreglo son iguales, retornar true.
   // Caso contrario retornar false.
   // Tu código:
-  var unNumeroCualquiera = array[0]; // 1
-  console.log(unNumeroCualquiera);
-  /* array.forEach(function (elem) {
-    if (elem !== unNumeroCualquiera) return false;
-  });
-  return true; */
-  return array.every(function (elem) {
+  return array.some((elem) => elem !== array[0]);
+  /* return array.every(function (elem) {
     return elem === unNumeroCualquiera;
-  });
+  }); */
 }
-console.log(todosIguales([1, 1, 1, 1, 1, 2]));
+console.log(todosIguales([1, 1, 1, 1, 2]));
 //                                       ^
 
 function mesesDelAño(array) {
