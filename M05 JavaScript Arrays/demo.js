@@ -70,10 +70,6 @@ console.log(arr);
 var prueba4 = arr.shift();
 console.log(prueba4);
 console.log(arr);
-//
-
-//
-//lkjlk
 
 // Objeto Arguments -> Es propio de las funciones, es un objeto, que se comporta como un arreglo, contiene todos los parametros de la funcion
 

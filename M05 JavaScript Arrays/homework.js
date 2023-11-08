@@ -1,68 +1,72 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
 function devolverPrimerElemento(array) {
+  // array -> [1,2,3,4] -> 1
+  //           ^
   // Retornar el primer elemento del arreglo recibido por parámetro.
   // Tu código:
-  // var primerElemento = array[0];
-  var primerElemento = array.shift();
-  return primerElemento;
+  var valor = array[0];
+  return valor;
+  return array.shift();
 }
-console.log(devolverPrimerElemento([1, 2, 3])); // 1
+console.log(devolverPrimerElemento([1, 2, 3, 4]));
+// Poner en marcha quokka -> shift + ctrl + p
 
 function devolverUltimoElemento(array) {
   // Retornar el último elemento del arreglo recibido por parámetro.
   // Tu código:
-  // var ultimoElemento = array.pop()
-  // var ultimoElemento = array[array.length - 1];
-  var ultimoElemento = array.at(-1);
-  return ultimoElemento;
+  // [1,2,3,4,5] -> length -> 5
+  //          ^  -> indice del ultimo -> 4
+  var ultimoIndice = array.length - 1;
+  var valor = array[ultimoIndice];
+  console.log(valor);
+  return valor;
+  return array.pop();
 }
-console.log(devolverUltimoElemento([1, 2, 3]));
-//                                        ^
+console.log(devolverUltimoElemento([1, 2, 3, 4, 5]));
 
 function obtenerLargoDelArray(array) {
   // Retornar la longitud del arreglo recibido por parámetro.
   // Tu código:
-  var longitud = array.length;
-  return longitud;
   return array.length;
 }
-console.log(obtenerLargoDelArray([1, true, "hola"]));
+
 function incrementarPorUno(array) {
   // El arreglo recibido por parámetro contiene números.
   // Retornar un arreglo con los elementos incrementados en +1.
   // Tu código:
-  var arrayIncrementadoPorUno = array.map(function (elem) {
+  var results = [];
+  console.log(array);
+  array.forEach(function (elem) {
+    console.log(elem);
     elem = elem + 1;
-    return elem;
+    results.push(elem);
+    console.log(elem);
   });
-  return arrayIncrementadoPorUno;
-  /* var arr2 = [] // [2, 3,4,5]
-   for (var i = 0; i < array.length; i++){
-      var elemento = array[i]
-      // elemento -> 2
-      var nuevoElemento = elemento + 1
-      arr2.push(nuevoElemento)
-   }
-   return arr2 */
+  console.log(array);
+  return results;
 }
-console.log(incrementarPorUno([1, 2, 3, 4])); // [2,3,4,5]
-//                                        ^
+console.log(incrementarPorUno([1, 3, 5, 7]));
+
 function agregarItemAlFinalDelArray(array, elemento) {
   // Agrega el "elemento" al final del arreglo recibido.
   // Retorna el arreglo.
   // Tu código:
-  array.push(elemento);
+  // [2,3,4]   5
+  array.push(elemento); // devuelve la lomgitud del nuevo array
+  // [2,3,4,5]
   return array;
 }
-console.log(agregarItemAlFinalDelArray([1, 2, 3], 4));
+console.log(agregarItemAlFinalDelArray([2, 3, 4], 5));
 
 function agregarItemAlComienzoDelArray(array, elemento) {
   // Agrega el "elemento" al comienzo del arreglo recibido.
   // Retorna el arreglo.
   // Tu código:
-  array.unshift(elemento);
+  // [2,3,4]  1
+  array.unshift(elemento); // devuelve la longitud del nuevo array
   return array;
+  // [1,2,3,4]
 }
 console.log(agregarItemAlComienzoDelArray([2, 3, 4], 1));
 
@@ -72,188 +76,175 @@ function dePalabrasAFrase(palabras) {
   // con un espacio entre cada palabra.
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
   // Tu código:
-  console.log(palabras.join(" "));
-  var frase = palabras.join(" ");
-  return frase;
+  // ["Hola", "como", "estas"] -> Hola como estas
+  return palabras.join(" "); // Hola como estas
 }
-console.log(dePalabrasAFrase(["h", "o", "l", "a"]));
-// h o l a
+console.log(dePalabrasAFrase(["Hola", "como", "estas"]));
+
 function arrayContiene(array, elemento) {
   // Verifica si el elemento existe dentro del arreglo recibido.
   // Retornar true si está, o false si no está.
   // Tu código:
-  var validate = array.includes(elemento); // devuelve un booleano -> true si el elemento esta o false si no esta
-  return validate;
-  /* var contiene=false
-   array.forEach((elem)=>{
-      if(elem === elemento){
-         contiene=true
-      }
-   })
-   return contiene; */
+  return array.includes(elemento);
 }
-console.log(arrayContiene([1, 2, 3, 4], 6)); // false
+console.log(arrayContiene([1, 2, 3], 6));
+
 function agregarNumeros(arrayOfNums) {
+  // arrayOfNums -> [2,4,6,7,8]
+  //                 ^
   // El parámetro "arrayOfNums" debe ser un arreglo de números.
   // Suma todos los elementos y retorna el resultado.
   // Tu código:
-  return arrayOfNums.reduce(function (acumulador, elem) {
-    acumulador = acumulador + elem;
-    return acumulador;
+  return arrayOfNums.reduce(function (acum, element) {
+    acum = acum + element;
+    return acum;
   });
 }
-console.log(agregarNumeros([1, 2, 3, 4]));
-//                                 ^  acumulador =6
+console.log(agregarNumeros([2, 4, 6, 7, 8]));
 
 function promedioResultadosTest(resultadosTest) {
+  // resultadosTest -> [2,4,6,7,8]
   // El parámetro "resultadosTest" es un arreglo de números.
   // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
   // Tu código:
-  var suma = agregarNumeros(resultadosTest);
-  console.log(suma);
-  var totalElementos = resultadosTest.length;
-  console.log(totalElementos);
-  var promedio = suma / totalElementos;
-  return promedio;
-  // return agregarNumeros(resultadosTest) / resultadosTest.length;
+  // promedio = suma de todos los elementos / cantidad de elementos
+  //   agregarNumeros(resultadosTest)    /   obtenerLargoDelArray(resultadosTest)
+  return agregarNumeros(resultadosTest) / obtenerLargoDelArray(resultadosTest);
 }
-console.log(promedioResultadosTest([1, 2, 3, 4]));
-// promedio -> suma de todo / cantidad de valores
+console.log(promedioResultadosTest([2, 4, 6, 7, 8]));
 
 function numeroMasGrande(arrayOfNums) {
+  // arrayOfNums -> [-2,5,8,1,40,4,5,2]
+  //                                 ^
   // El parámetro "arrayOfNums" es un arreglo de números.
   // Retornar el número más grande.
   // Tu código:
-  /* var numeroMasGrande = arrayOfNums[0]
-   arrayOfNums.forEach(function (elem) {
-      if(elem > numeroMasGrande) numeroMasGrande = elem
-   })
-   return numeroMasGrande */
-  /* console.log(...arrayOfNums);
-  console.log(Math.max(...arrayOfNums)); */
-  return Math.max(...arrayOfNums);
+  var numeroMasGrande = -Infinity; // -2 // 5 // 8 // 40
+  /*
+  for (var elemento of arrayOfNums) {
+    if (elemento > numeroMasGrande) {
+      numeroMasGrande = elemento;
+      console.log(numeroMasGrande);
+    }
+  }
+  */
+  arrayOfNums.forEach(function (el) {
+    if (el > numeroMasGrande) numeroMasGrande = el;
+  });
+  return numeroMasGrande;
 }
-console.log(numeroMasGrande([1, 2, 30, 40, 5])); // 40
-//                                          ^
+console.log(numeroMasGrande([-2, 5, 8, 1, 40, 4, 5, 2])); // 40
+
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto.
   // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
   // [PISTA]: "arguments" es un arreglo.
-  // Tu código:
-
-  var longitudDeArguments = arguments.length;
-  if (longitudDeArguments === 0) return 0;
-  if (longitudDeArguments === 1) return arguments[0];
-  var producto = 1;
-  for (var i = 0; i < longitudDeArguments; i++) {
-    producto = producto * arguments[i];
+  // Tu código: {}[0]
+  if(arguments.length === 0) return 0
+  var total = 1; // 3 // 3 // 12
+  for (var el of arguments) {
+    console.log(el);
+    total = total * el;
   }
-  return producto;
+  return total;
 }
-console.log(multiplicarArgumentos(6, 2));
+console.log(multiplicarArgumentos(5));
 
 function cuentoElementos(array) {
+  // array -> [19,10,17,18,20]
+  //                       ^
   // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
   // Tu código:
   var filtrados = array.filter(function (elem) {
-    return elem > 18;
+    if (elem > 18) return elem;
   });
-  return filtrados.length;
-  // [20,22,29]
+  console.log(filtrados);
+  return obtenerLargoDelArray(filtrados);
+  // [19, 20]
 }
-console.log(cuentoElementos([20, 17, 22, 16, 29, 18])); // 3
+console.log(cuentoElementos([19, 10, 17, 18, 20])); // 2
 
 function diaDeLaSemana(numeroDeDia) {
   // Supongamos que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente.
-  // 7 -> sabado
-  // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana" si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
+  // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
+  // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
   // Tu código:
-  if (numeroDeDia < 1 || numeroDeDia > 7) return "Numero Invalido";
-  if (numeroDeDia === 1 || numeroDeDia === 7) return "Es fin de semana";
-  return "Es dia laboral";
+  // == vs ===
+  // valor vs valor y tipo de dato
+  if (typeof numeroDeDia !== "number") throw Error("Solo numeros");
+  if (numeroDeDia === 1 || numeroDeDia === 7) {
+    return "Es fin de semana";
+  } else if (1 < numeroDeDia && numeroDeDia < 7) {
+    return "Es dia laboral";
+  } else {
+    return "No es ningun dia disponible";
+  }
 }
-console.log(diaDeLaSemana(8));
+console.log(diaDeLaSemana(17));
 
 function empiezaConNueve(num) {
   // Esta función recibe por parámetro un número.
   // Debe retornar true si el entero inicia con 9 y false en otro caso.
   // Tu código:
-  console.log(num.toString()[0]);
-  var numeroEnString = num.toString();
-  var primerValor = numeroEnString.at(0);
-  // typeof primerValor -> string -> "9"
-  primerValor = Number(primerValor);
-  // primerValor -> 9 -> typeof -> number
-  /* if (primerValor === 9) return true;
-   else return false; */
-  return primerValor === 9;
+  // "90" -> "9" == 9
+  if (num.toString()[0] == 9) return true;
+  else return false;
+  // return num.toString()[0] == 9 ? true : false
 }
-console.log(empiezaConNueve(90)); // true
-//                          ^      "90"
+console.log(empiezaConNueve(70));
+
 function todosIguales(array) {
   // Si todos los elementos del arreglo son iguales, retornar true.
   // Caso contrario retornar false.
   // Tu código:
-  return array.some((elem) => elem !== array[0]);
-  /* return array.every(function (elem) {
-    return elem === unNumeroCualquiera;
-  }); */
+  var elementoReferencia = array[0];
+  // elementoReferencia = 9
+  return array.every(function (elem) {
+    return elem === elementoReferencia;
+  });
 }
-console.log(todosIguales([1, 1, 1, 1, 2]));
-//                                       ^
+console.log(todosIguales([9, 9, 9, 9, 9, 9]));
 
 function mesesDelAño(array) {
   // El arreglo contiene algunos meses del año desordenados. Debes recorrerlo, buscar los meses "Enero",
   // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
   // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
   // Tu código:
-  var mesesFiltrados = array.filter(function (elem) {
-    if (elem === "Enero" || elem === "Marzo" || elem === "Noviembre")
-      return elem;
-    //el includes genera un recorrido por cada uno de los elemntos del array, voy agenerar otro recorrido
+  var filtrados = array.filter(function (el) {
+    if (el === "Enero" || el === "Marzo" || el === "Noviembre") return el;
   });
-  console.log(mesesFiltrados);
-  var conjunto = new Set(mesesFiltrados);
-  console.log(conjunto);
-  var arregloEmpaquetado = [...conjunto];
-  console.log(arregloEmpaquetado);
-
-  if (arregloEmpaquetado.length < 3)
-    return "No se encontraron los meses pedidos";
-  return arregloEmpaquetado;
-  // ["Enero", "Marzo", "Enero"]
+  var conjunto = new Set(filtrados);
+  console.log(conjunto.size);
+  if (conjunto.size < 3) return "No se encontraron los meses pedidos";
+  else return filtrados;
+  // ["Enero", "Enero", "Marzo", "Noviembre"]
 }
-console.log(mesesDelAño(["Enero", "Febrero", "Marzo", "Abril", "Enero"])); // "No se encontraron los meses pedidos"
-
-// arr = ["Enero", "Marzo", "Enero"]
-// new Set(arr) -> {0: }
-
-// Set -> conjunto de valores unicos
-// { [iterador]  0: "hola" 1: "chao"}
+console.log(mesesDelAño(["Enero", "Febrero", "Enero", "Marzo", "Noviembre"]));
+// ["Enero", "Enero", "Marzo"]
+console.log(new Set(["Enero", "Enero", "Marzo"]).size);
 
 function tablaDelSeis() {
   // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
   // Tu código:
-  var tabla = [];
-  for (var i = 0; i <= 10; i++) {
-    var operacion = 6 * i;
-    tabla.push(operacion);
+  // 6 * 
+  var tabla = [] // [0, 6, 12, 18,..., 60]
+  for (var i = 0; i <= 10; i++){
+    tabla.push(6 * i)
   }
-  return tabla;
+  return tabla
 }
-console.log(tablaDelSeis());
+console.log(tablaDelSeis())
 
 function mayorACien(array) {
   // La función recibe un arreglo con enteros entre 0 y 200.
   // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
   // Tu código:
-  var filtrados = array.filter(function (elem) {
-    if (elem > 100) return elem;
-  });
-  return filtrados;
+  return array.filter(function (el) {
+    if(el > 100) return el
+  })
 }
-console.log(mayorACien([200, 100, 140]));
+console.log(mayorACien([101,99,200,199]))
 
 /* ----------------------------------------------------------------------------------
 💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
